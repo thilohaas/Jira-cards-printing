@@ -53,7 +53,7 @@ table.card tr.description td img {
 
 table.card tr td.meta {
 	width: 60%;
-	font-size: 9pt;
+	font-size: 12pt;
 }
 
 table.card tr td.meta span.priority,
@@ -63,12 +63,14 @@ table.card tr td.meta span.version {
 }
 
 table.card tr:first-child td {
-	vertical-align: middle;
+	vertical-align: top;
 }
 
 table.card h1 {
 	margin: 0;
-	font-size: 20pt;
+	font-size: 24pt;
+	line-height:1;
+	margin-bottom:6px;
 }
 
 table.card tr.reporter {
@@ -77,6 +79,10 @@ table.card tr.reporter {
 
 table.card tr.estimation td span.estimation {
 	font-weight: bold;
+}
+
+span.epic {
+	padding:2px 4px;
 }
 
 .page-break {
