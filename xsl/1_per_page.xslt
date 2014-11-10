@@ -10,6 +10,7 @@
         <head>
             <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
             <title>Task cards</title>
+            <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css' />
             <link rel="stylesheet" type="text/css" href="css/1_per_page.css" />
         </head>
         <body>
