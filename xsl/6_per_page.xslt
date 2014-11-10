@@ -67,7 +67,7 @@
                     </xsl:if>
                 </td>
                 <td class="meta">
-                    <xsl:if test="$data/timeestimate">
+                    <xsl:if test="$data/fixVersion">
                         Version: <span class="version"><xsl:value-of select="$data/fixVersion" /></span><br />
                     </xsl:if>
                     Priority: <img src="{$data/priority/@iconUrl}" style="position: relative; top: 3px"/> <span class="priority"><xsl:value-of select="$data/priority" /></span><br />
