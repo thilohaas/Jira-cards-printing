@@ -53,9 +53,9 @@ else { ?>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>Jira cards generator</title>
         <link rel="stylesheet" type="text/css" media="all" href="css/style.css" />
+        <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css' />
     </head>
     <body>
-        <img class="logo" src="http://www.liip.ch/themes/liip/images/logo-liip.gif" alt="Liip logo" />
         <h1>Jira Cards Generator</h1>
         <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
             <div>

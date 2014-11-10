@@ -1,7 +1,15 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 body {
     width: 800px;
     margin: auto;
     margin-top: 30px;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 img.logo {

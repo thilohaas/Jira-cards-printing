@@ -1,6 +1,22 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 html, html body {
 	margin: 0;
 	padding: 0;
+	font-family: 'Roboto Condensed', sans-serif;
+}
+
+pre {
+	white-space: pre-wrap;       /* css-3 */
+	white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+	white-space: -pre-wrap;      /* Opera 4-6 */
+	white-space: -o-pre-wrap;    /* Opera 7 */
+	word-wrap: break-word;       /* Internet Explorer 5.5+ */
 }
 
 table {
@@ -12,7 +28,7 @@ table {
 table.all > tbody > tr > td {
 	vertical-align: top;
 	border: 1pt solid #EFEFEF;
-	width: 46%;
+	width: 50%;
 	padding: 2%;
 }
 
@@ -31,12 +47,17 @@ table.card tr.summary td {
 table.card tr.description td, table.card tr.estimation td {
 	padding-top: 10px;
 }
+table.card tr.description td img {
+	max-width:100%;
+}
 
 table.card tr td.meta {
 	width: 60%;
+	font-size: 9pt;
 }
 
 table.card tr td.meta span.priority,
+table.card tr td.meta span.reporter,
 table.card tr td.meta span.version {
 	font-weight: bold;
 }
@@ -48,6 +69,10 @@ table.card tr:first-child td {
 table.card h1 {
 	margin: 0;
 	font-size: 20pt;
+}
+
+table.card tr.reporter {
+	font-size:10pt;
 }
 
 table.card tr.estimation td span.estimation {

@@ -2,7 +2,7 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
     <!-- output method -->
-    <xsl:output method="xml" omit-xml-declaration="yes" cdata-section-elements="" encoding="utf-8" media-type="text/xml" indent="yes" version="1.0"/>
+    <xsl:output method="html" omit-xml-declaration="yes" cdata-section-elements="" encoding="utf-8" media-type="text/xml" indent="yes" version="1.0"/>
 
     <!-- root template -->
     <xsl:template match="/">
@@ -10,7 +10,10 @@
         <head>
             <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
             <title>Task cards</title>
+            <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css' />
             <link rel="stylesheet" type="text/css" href="css/6_per_page.css" />
+            <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js" />
+            <script type="text/javascript" src="/js/color.js" />
         </head>
         <body>
             <table class="all">
@@ -35,8 +38,10 @@
                         <xsl:variable name="tr_close">&lt;/tr&gt;</xsl:variable>
                         <xsl:value-of select="$tr_close" disable-output-escaping="yes"/>
                     </xsl:if>
-
                 </xsl:for-each>
+                <xsl:if test="count(rss/channel/item) = 1">
+                    <td><div></div></td>
+                </xsl:if>
             </table>
         </body>
         </html>
@@ -51,10 +56,22 @@
                     <xsl:if test="$data/parent">
                         Subtask of <strong><xsl:value-of select="$data/parent" /></strong>
                     </xsl:if>
+
+                    <xsl:if test="$data/customfields/customfield[@key='com.pyxis.greenhopper.jira:gh-epic-link']/customfieldvalues[1]/customfieldvalue">
+                        <span class="epic">
+                            Epic:
+                            <span class="value">
+                                <xsl:value-of select="$data/customfields/customfield[@key='com.pyxis.greenhopper.jira:gh-epic-link']/customfieldvalues[1]/customfieldvalue" />
+                            </span>
+                        </span>
+                    </xsl:if>
                 </td>
                 <td class="meta">
-                    Version: <span class="version"><xsl:value-of select="$data/fixVersion" /></span><br />
-                    Priority: <img src="{$data/priority/@iconUrl}" style="position: relative; top: 3px"/> <span class="priority"><xsl:value-of select="$data/priority" /></span>
+                    <xsl:if test="$data/timeestimate">
+                        Version: <span class="version"><xsl:value-of select="$data/fixVersion" /></span><br />
+                    </xsl:if>
+                    Priority: <img src="{$data/priority/@iconUrl}" style="position: relative; top: 3px"/> <span class="priority"><xsl:value-of select="$data/priority" /></span><br />
+                    Reporter: <span class="reporter"><xsl:value-of select="$data/reporter" /></span>
                 </td>
             </tr>
             <tr class="summary">
