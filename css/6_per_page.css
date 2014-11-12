@@ -29,40 +29,15 @@ table.all > tbody > tr > td {
 	vertical-align: top;
 	border: 1pt solid #EFEFEF;
 	width: 50%;
-	padding: 2%;
 }
 
 table.all > tbody > tr > td div.card-wrapper {
-	height: 7.85cm;
+	height: 8.55cm;
 	overflow: hidden;
 }
 
-
-table.card tr.summary td {
-	font-weight: bold;
-	font-size: 15pt;
-	padding-top: 10px;
-}
-
-table.card tr.description td, table.card tr.estimation td {
-	padding-top: 10px;
-}
-table.card tr.description td img {
-	max-width:100%;
-}
-
-table.card tr td.meta {
-	width: 60%;
-	font-size: 12pt;
-}
-
-table.card tr td.meta span.priority,
-table.card tr td.meta span.reporter,
-table.card tr td.meta span.version {
-	font-weight: bold;
-}
-
-table.card tr:first-child td {
+table.card td {
+	padding: 5px 10px;
 	vertical-align: top;
 }
 
@@ -70,19 +45,37 @@ table.card h1 {
 	margin: 0;
 	font-size: 24pt;
 	line-height:1;
-	margin-bottom:6px;
 }
 
-table.card tr.reporter {
-	font-size:10pt;
+table.card tr:first-child td {
+	vertical-align:middle;
 }
 
-table.card tr.estimation td span.estimation {
+table.card tr:first-child td:nth-child(2) {
+	text-align:right;
+}
+
+table.card tr.meta td {
+	font-size: 12pt;
+	background-color: #EFEFEF;
+}
+
+table.card tr.meta span {
 	font-weight: bold;
 }
 
-span.epic {
-	padding:2px 4px;
+table.card tr.summary td {
+	font-weight: bold;
+	font-size: 15pt;
+}
+
+table.card tr.description td,
+table.card tr.summary td {
+	padding-top: 10px;
+}
+
+table.card tr.description td img {
+	max-width:100%;
 }
 
 .page-break {

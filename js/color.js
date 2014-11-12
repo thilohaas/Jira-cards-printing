@@ -13,10 +13,10 @@ var hashToRgb = function(i){
 };
 
 $(document).ready(function () {
-    $('.epic').each(function(){
+    $('.colorize').each(function(){
         $(this).css(
           'background-color',
-          getColor($(this).children('.value').text())
+          getColor($(this).data('color-hash'))
         );
     });
 });

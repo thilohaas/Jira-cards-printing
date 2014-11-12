@@ -49,50 +49,70 @@
 
     <xsl:template name="card">
         <xsl:param name="data"/>
+        <xsl:variable name="project" select="$data/project/@key"> </xsl:variable>
+
         <table class="card">
             <tr>
                 <td>
+                    <xsl:attribute name="class">colorize</xsl:attribute>
+                    <xsl:attribute name="data-color-hash"><xsl:value-of select="$data/project/@key" /></xsl:attribute>
                     <h1><xsl:value-of select="$data/key" /></h1>
-                    <xsl:if test="$data/parent">
-                        Subtask of <strong><xsl:value-of select="$data/parent" /></strong>
-                    </xsl:if>
+                </td>
+                <td>
+                    <xsl:attribute name="class">colorize right</xsl:attribute>
 
-                    <xsl:if test="$data/customfields/customfield[@key='com.pyxis.greenhopper.jira:gh-epic-link']/customfieldvalues[1]/customfieldvalue">
-                        <span class="epic">
-                            Epic:
-                            <span class="value">
+                    <xsl:choose>
+                        <xsl:when test="$data/parent">
+                            <xsl:attribute name="data-color-hash"><xsl:value-of select="$data/parent" /></xsl:attribute>
+
+                            Parent: <strong><xsl:value-of select="$data/parent" /></strong>
+                        </xsl:when>
+                        <xsl:when test="$data/customfields/customfield[@key='com.pyxis.greenhopper.jira:gh-epic-link']/customfieldvalues[1]/customfieldvalue">
+                            <xsl:attribute name="data-color-hash">
                                 <xsl:value-of select="$data/customfields/customfield[@key='com.pyxis.greenhopper.jira:gh-epic-link']/customfieldvalues[1]/customfieldvalue" />
-                            </span>
-                        </span>
-                    </xsl:if>
+                            </xsl:attribute>
+
+                            Epic: <strong><xsl:value-of select="$data/customfields/customfield[@key='com.pyxis.greenhopper.jira:gh-epic-link']/customfieldvalues[1]/customfieldvalue" /></strong>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:attribute name="data-color-hash"><xsl:value-of select="$data/project/@key" /></xsl:attribute>
+                        </xsl:otherwise>
+                    </xsl:choose>
                 </td>
-                <td class="meta">
+
+
+            </tr>
+            <tr class="meta">
+                <td>
+                    Priority: <img src="{$data/priority/@iconUrl}" style="position: relative; top: 3px"/> <span class="priority"><xsl:value-of select="$data/priority" /></span>
                     <xsl:if test="$data/fixVersion">
-                        Version: <span class="version"><xsl:value-of select="$data/fixVersion" /></span><br />
+                        <br />
+                        Version: <span class="version"><xsl:value-of select="$data/fixVersion" /></span>
                     </xsl:if>
-                    Priority: <img src="{$data/priority/@iconUrl}" style="position: relative; top: 3px"/> <span class="priority"><xsl:value-of select="$data/priority" /></span><br />
-                    Reporter: <span class="reporter"><xsl:value-of select="$data/reporter" /></span>
                 </td>
-            </tr>
-            <tr class="summary">
-                <td colspan="2"><xsl:value-of select="$data/summary" /></td>
-            </tr>
-            <xsl:if test="$data/timeestimate or $data/customfields/customfield[@id='customfield_10040']/customfieldvalues[1]/customfieldvalue">
-                <tr class="estimation">
-                    <td colspan="2">Estimation:
+                <td>
+                    Reporter: <span class="reporter"><xsl:value-of select="$data/reporter" /></span>
+                    <xsl:if test="$data/timeestimate or $data/customfields/customfield[@id='customfield_10040']/customfieldvalues[1]/customfieldvalue">
+                        <br />
+                        Estimation:
                         <span class="estimation">
                             <xsl:choose>
                                 <xsl:when test="$data/timeestimate">
                                     <xsl:value-of select="$data/timeestimate" />
                                 </xsl:when>
                                 <xsl:otherwise>
-                                    <xsl:value-of select="$data/customfields/customfield[@id='customfield_10040']/customfieldvalues[1]/customfieldvalue" /> SP
+                                    <xsl:value-of select="$data/customfields/customfield[@id='customfield_10040']/customfieldvalues[1]  /customfieldvalue" /> SP
                                 </xsl:otherwise>
                             </xsl:choose>
                         </span>
-                    </td>
-                </tr>
-            </xsl:if>
+                    </xsl:if>
+                </td>
+            </tr>
+
+            <tr class="summary">
+                <td colspan="2"><xsl:value-of select="$data/summary" /></td>
+            </tr>
+
             <tr class="description">
                 <td colspan="2"><xsl:value-of select="$data/description" disable-output-escaping="yes"/></td>
             </tr>
