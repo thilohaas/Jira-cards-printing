@@ -87,5 +87,5 @@ table.card tr td,
 table.card tr td *
 {
 	max-width:100%;
-	word-break: break-all;
+	word-break: break-word;
 }
