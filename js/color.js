@@ -3,7 +3,8 @@ var getColor = function(str) {
     for (var i = 0; i < str.length; i++) {
        hash = str.charCodeAt(i) + ((hash << 5) - hash);
     }
-    return '#' + hashToRgb(hash);
+    var rgbColor = hashToRgb(hash);
+    return '#' + rgbColor + Array(6 - rgbColor.length + 1).join('0');
 };
 
 var hashToRgb = function(i){
