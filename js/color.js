@@ -1,23 +1,16 @@
-var getColor = function(str) {
-    var hash = 0;
-    for (var i = 0; i < str.length; i++) {
-       hash = str.charCodeAt(i) + ((hash << 5) - hash);
-    }
-    var rgbColor = hashToRgb(hash);
-    return '#' + rgbColor + Array(6 - rgbColor.length + 1).join('0');
-};
+var getRgbaColor = function(colorString) {
+    var rgb = [],
+        colorStringShortened = colorString.substr(0, 1) + colorString.substr(-2, 2);
 
-var hashToRgb = function(i){
-    return ((i>>16)&0xFF).toString(16) +
-           ((i>>8)&0xFF).toString(16) +
-           (i&0xFF).toString(16);
+    for (var i = 0; i < 3; i++) {
+        rgb.push(parseInt((colorStringShortened.charCodeAt(i % colorString.length) * colorString.length) % 255));
+    }
+
+    return 'rgba(' + rgb.join(',') + ',0.7)';
 };
 
 $(document).ready(function () {
     $('.colorize').each(function(){
-        $(this).css(
-          'background-color',
-          getColor($(this).data('color-hash'))
-        );
+        $(this).css('background-color', getRgbaColor($(this).data('color-hash')));
     });
 });
