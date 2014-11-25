@@ -33,6 +33,7 @@ table.all > tbody > tr > td {
 
 table.all > tbody > tr > td div.card-wrapper {
 	height: 8.55cm;
+    min-width: 8.55cm;
 	overflow: hidden;
 }
 
@@ -80,4 +81,11 @@ table.card tr.description td img {
 
 .page-break {
 	page-break-before: always;
+}
+
+table.card tr td,
+table.card tr td *
+{
+	max-width:100%;
+	word-break: break-all;
 }
