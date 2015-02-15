@@ -15,5 +15,5 @@ docker run -it --rm -p 80:80 --name cards-app cards
 
 Open the app in your browser:
 ```
-$ open http://`boot2docker ip`/
+open http://`boot2docker ip`/
 ```
