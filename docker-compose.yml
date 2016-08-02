@@ -1,0 +1,4 @@
+cards-app:
+  image: .
+  ports:
+    - "80:80"

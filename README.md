@@ -9,8 +9,8 @@ $(boot2docker shellinit)
 
 Build it:
 ```
-docker build -t cards .
-docker run -it --rm -p 80:80 --name cards-app cards
+docker build -t jira-cards .
+docker run -it --rm -p 80:80 --name jira-cards-app jira-cards
 ```
 
 Open the app in your browser:

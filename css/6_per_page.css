@@ -32,8 +32,8 @@ table.all > tbody > tr > td {
 }
 
 table.all > tbody > tr > td div.card-wrapper {
-	height: 8.55cm;
-    min-width: 8.55cm;
+	height: 9.14cm;
+    min-width: 9.14cm;
 	overflow: hidden;
 }
 
@@ -61,6 +61,9 @@ table.card tr.meta td {
 	background-color: #EFEFEF;
 }
 
+table.card tr.meta img {
+	max-width: 16px;
+}
 table.card tr.meta span {
 	font-weight: bold;
 }
