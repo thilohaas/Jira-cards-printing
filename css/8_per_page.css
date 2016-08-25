@@ -1,0 +1,101 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html, html body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Roboto Condensed', sans-serif;
+}
+
+pre {
+	white-space: pre-wrap;       /* css-3 */
+	white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+	white-space: -pre-wrap;      /* Opera 4-6 */
+	white-space: -o-pre-wrap;    /* Opera 7 */
+	word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+table {
+	width: 100%;
+	border-spacing: 0px;
+	border-collapse: collapse;
+}
+
+table.all > tbody > tr > td {
+	vertical-align: top;
+	width: 50%;
+}
+
+table.all > tbody > tr > td div.card-wrapper {
+	height: 7cm;
+	overflow: hidden;
+	padding: 0 0.5cm;
+}
+
+table.card td {
+	padding: 5px 10px;
+	vertical-align: top;
+}
+
+table.card h1 {
+	margin: 0;
+	font-size: 24pt;
+	line-height:1;
+}
+
+table.card tr:first-child td {
+	vertical-align:middle;
+}
+
+table.card tr:first-child td:nth-child(2) {
+	text-align:right;
+}
+
+table.card tr.meta td {
+	font-size: 12pt;
+	background-color: #EFEFEF;
+}
+
+table.card tr.meta img {
+	max-width: 16px;
+}
+table.card tr.meta span {
+	font-weight: bold;
+}
+
+table.card tr.summary td {
+	font-weight: bold;
+	font-size: 15pt;
+}
+
+table.card tr.description td,
+table.card tr.summary td {
+	padding-top: 10px;
+}
+
+table.card tr.description td img {
+	max-width:100%;
+}
+
+.page-start:not(:first-of-type) {
+	page-break-before: always;
+}
+.page-start:first-of-type {
+	border-top: 0.9cm solid transparent;
+}
+.page-start {
+	border-top: 1.8cm solid transparent;
+}
+.page-end {
+	border-bottom: 0.9cm solid transparent;
+}
+table.card tr td,
+table.card tr td *
+{
+	max-width:100%;
+	word-break: break-word;
+}

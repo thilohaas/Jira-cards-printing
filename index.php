@@ -22,6 +22,9 @@ if(!empty($_POST['xml_url'])) {
     }
 
     switch($format) {
+        case '8PerPage':
+            $docXSL = dirname(__FILE__) . '/xsl/8_per_page.xslt';
+            break;
         case '6PerPage':
             $docXSL = dirname(__FILE__) . '/xsl/6_per_page.xslt';
             break;
@@ -78,6 +81,9 @@ else { ?>
             <div>
                 <label>format:</label>
                 <div>
+                    <input id="8PerPage" type="radio" name="format" value="8PerPage" checked />
+                    <label class="inline" for="8PerPage">8 cards per page</label>
+                    <br />
                     <input id="6PerPage" type="radio" name="format" value="6PerPage" checked />
                     <label class="inline" for="6PerPage">6 cards per page</label>
                     <br />
