@@ -1,4 +1,4 @@
 cards-app:
-  image: .
+  build: .
   ports:
     - "80:80"
