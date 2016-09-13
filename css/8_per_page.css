@@ -43,8 +43,18 @@ table.card td {
 
 table.card h1 {
 	margin: 0;
-	font-size: 24pt;
+	font-size: 20pt;
 	line-height:1;
+	display: inline-block;
+}
+
+table.card .storypoints {
+	float: right;
+    background-color: white;
+    color: black;
+    padding: 5px;
+    border-radius: 30%;
+    font-weight: bold;
 }
 
 table.card tr:first-child td {

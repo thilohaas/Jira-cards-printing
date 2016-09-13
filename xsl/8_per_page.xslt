@@ -58,6 +58,11 @@
                     <xsl:attribute name="class">colorize</xsl:attribute>
                     <xsl:attribute name="data-color-hash"><xsl:value-of select="$data/project/@key" /></xsl:attribute>
                     <h1><xsl:value-of select="$data/key" /></h1>
+                    <xsl:if test="$data/customfields/customfield[@id='customfield_10008']/customfieldvalues[1]/customfieldvalue">
+                        <span class="storypoints">
+                            <xsl:value-of select="$data/customfields/customfield[@id='customfield_10008']/customfieldvalues[1]/customfieldvalue" />
+                        </span>
+                    </xsl:if>
                 </td>
                 <td>
                     <xsl:attribute name="class">colorize right</xsl:attribute>
